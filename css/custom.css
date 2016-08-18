@@ -27,6 +27,8 @@ footer.page-footer {
     color: #fff;
     background-color: #26a69a;
     border-radius: 2px;
+    padding-top: 0.15em;
+    padding-bottom: 0.15em;
 }
 
 .u-badge-new {
@@ -44,4 +46,18 @@ footer.page-footer {
 .u-modal-link {
     cursor: pointer;
     padding: 0.5em;
+}
+
+.firstcol {
+    padding-left: 1em;
+}
+
+nav {
+    margin-bottom: 1em;
+}
+
+.nav-wrapper,
+.page-footer {
+    padding-left: 1em;
+    padding-right: 1em;
 }
