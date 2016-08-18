@@ -40,3 +40,8 @@ footer.page-footer {
 .u-badge-acknowledged {
     background-color: #4caf50 !important;
 }
+
+.u-modal-link {
+    cursor: pointer;
+    padding: 0.5em;
+}

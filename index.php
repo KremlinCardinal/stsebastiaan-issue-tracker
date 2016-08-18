@@ -24,11 +24,11 @@ session_start();
         <a id="logo-container" href="" class="brand-logo">St. Sebastiaan - Issue Tracker</a>
 
         <ul class="right hide-on-med-and-down">
-            <li><a class="modal-trigger" href="#contact-modal">Contact</a></li>
+            <li><a class="modal-trigger" href="#contact-modal">Login</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-            <li><a class="modal-trigger" href="#contact-modal">Contact</a></li>
+            <li><a class="modal-trigger" href="#contact-modal">Login</a></li>
         </ul>
 
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -44,60 +44,44 @@ session_start();
                         <tr>
                             <th>ID</th>
                             <th>Titel</th>
-                            <th>Aangemaakt door</th>
-                            <th>Status</th>
                             <th>Toegewezen aan</th>
                             <th>Deadline</th>
+                            <th>Status</th>
+                            <th>Info</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>1</td>
                             <td>Pijlen plakken</td>
-                            <td>Michiel</td>
-                            <td><span class="c-badge u-new u-badge-assigned">Toegewezen</span></td>
-                            <td>Joop</td>
+                            <td>Joop, Tjeerd</td>
                             <td>-</td>
+                            <td><span class="c-badge u-new u-badge-assigned">Toegewezen</span></td>
+                            <td><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Gras maaien</td>
-                            <td>Jeroen</td>
+                            <td>-</td>
+                            <td>-</td>
                             <td><span class="c-badge u-new u-badge-new">Nieuw</span></td>
-                            <td>-</td>
-                            <td>-</td>
+                            <td><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>Stofzuigen</td>
-                            <td>Jeroen</td>
-                            <td><span class="c-badge u-new u-badge-acknowledged">Opgepakt</span></td>
-                            <td>Henk</td>
+                            <td>Henk, Hans</td>
                             <td>19-09-2016</td>
+                            <td><span class="c-badge u-new u-badge-acknowledged">Opgepakt</span></td>
+                            <td><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>Doelpakken repareren</td>
-                            <td>Edwin</td>
+                            <td>Edwin, Joop</td>
+                            <td>-</td>
                             <td><span class="c-badge u-new u-badge-assigned">Toegewezen</span></td>
-                            <td>Edwin</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Gras maaien</td>
-                            <td>Jeroen</td>
-                            <td><span class="c-badge u-new u-badge-new">Nieuw</span></td>
-                            <td>-</td>
-                            <td>23-10-2016</td>
-                        </tr>
-                        <tr>
-                            <td>6</td>
-                            <td>Stofzuigen</td>
-                            <td>Jeroen</td>
-                            <td><span class="c-badge u-new u-badge-acknowledged">Opgepakt</span></td>
-                            <td>Henk</td>
-                            <td>-</td>
+                            <td><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>
                         </tr>
                     </tbody>
                 </table>
@@ -114,9 +98,20 @@ session_start();
     </div>
 </footer>
 
+<div id="modal-info" class="modal">
+    <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+</div>
+
 <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
 
+<script type="text/javascript" src="default.js"></script>
 <script type="text/javascript" src="functions.js"></script>
 
 </body>
