@@ -31,16 +31,28 @@ footer.page-footer {
     padding-bottom: 0.15em;
 }
 
-.u-badge-new {
+.u-badge-nieuw {
     background-color: #ee6e73 !important;
 }
 
-.u-badge-assigned {
+.u-badge-toegewezen {
     background-color: #03a9f4 !important;
 }
 
-.u-badge-acknowledged {
+.u-badge-opgepakt {
+    background-color: #ffb300 !important;
+}
+
+.u-badge-feedback {
+    background-color: #ba68c8 !important;
+}
+
+.u-badge-afgerond {
     background-color: #4caf50 !important;
+}
+
+.u-badge-gesloten {
+    background-color: #757575 !important;
 }
 
 .u-modal-link {
@@ -62,8 +74,6 @@ nav {
     padding-right: 1em;
 }
 
-#result {
-    border: 1px dotted black;
-    padding: 25px;
-    margin: 10px;
+.u-capitalize {
+    text-transform: capitalize;
 }

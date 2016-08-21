@@ -39,53 +39,6 @@ session_start();
 
 </div>
 
-<table class="striped responsive-table">
-    <thead>
-        <tr>
-            <th class="firstcol">ID</th>
-            <th>Titel</th>
-            <th>Toegewezen aan</th>
-            <th>Deadline</th>
-            <th>Status</th>
-            <th class="lastcol">Info</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td class="firstcol">1</td>
-            <td>Pijlen plakken</td>
-            <td>Joop, Tjeerd</td>
-            <td>-</td>
-            <td><span class="c-badge u-new u-badge-assigned">Toegewezen</span></td>
-            <td class="lastcol"><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>
-        </tr>
-        <tr>
-            <td class="firstcol">2</td>
-            <td>Gras maaien</td>
-            <td>-</td>
-            <td>-</td>
-            <td><span class="c-badge u-new u-badge-new">Nieuw</span></td>
-            <td class="lastcol"><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>
-        </tr>
-        <tr>
-            <td class="firstcol">3</td>
-            <td>Stofzuigen</td>
-            <td>Henk, Hans</td>
-            <td>19-09-2016</td>
-            <td><span class="c-badge u-new u-badge-acknowledged">Opgepakt</span></td>
-            <td class="lastcol"><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>
-        </tr>
-        <tr>
-            <td class="firstcol">4</td>
-            <td>Doelpakken repareren</td>
-            <td>Edwin, Joop</td>
-            <td>-</td>
-            <td><span class="c-badge u-new u-badge-assigned">Toegewezen</span></td>
-            <td class="lastcol"><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>
-        </tr>
-    </tbody>
-</table>
-
 <footer class="page-footer indigo">
     <div class="footer-copyright">
         &copy; Copyright 2016 - Michiel Dijk
