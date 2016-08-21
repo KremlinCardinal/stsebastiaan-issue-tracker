@@ -35,6 +35,10 @@ session_start();
     </div>
 </nav>
 
+<div id="result">
+
+</div>
+
 <table class="striped responsive-table">
     <thead>
         <tr>
@@ -99,6 +103,7 @@ session_start();
 </div>
 
 <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="lib/moment-with-locales.js"></script>
 <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
 
 <script type="text/javascript" src="default.js"></script>
