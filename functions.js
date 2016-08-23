@@ -38,12 +38,20 @@ function showTable(data) {
     var tableBody = '';
 
     for(var i = 0; i < data.length; i++) {
+
+        var deadline = data[i].deadline;
+
+        if(data[i].deadline !== '-') {
+            deadline =  moment(data[i].deadline, "YYYY-MM-DD").format('L');
+        }
+
+
         tableBody += '<tr>' +
                          '<td class="firstcol">' + data[i].id + '</td>' +
                          '<td>' + data[i].title + '</td>' +
                          '<td class="u-capitalize">' + data[i].cat_name + '</td>' +
                          '<td class="u-capitalize">' + data[i].assigned_to + '</td>' +
-                         '<td>' + data[i].deadline + '</td>' +
+                         '<td>' + deadline + '</td>' +
                          '<td class="u-capitalize"><span class="c-badge u-new u-badge-' + data[i].status_name + '">' + data[i].status_name + '</span></td>' +
                          '<td class="lastcol"><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>' +
                      '</tr>';
