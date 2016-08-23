@@ -42,10 +42,14 @@ class database
 	}
 
 	public function getArray($pQuery) {
-		$result = $this->executeQuery($pQuery,true);
-		$return = mysqli_fetch_assoc($result);
+        $result = $this->executeQuery($pQuery, true);
+        $rows = array();
 
-		return $return;
+        while($val = mysqli_fetch_assoc($result)) {
+            $rows[] = $val;
+        }
+
+		return $rows;
 	}
 
 	public function getJson($pQuery) {
