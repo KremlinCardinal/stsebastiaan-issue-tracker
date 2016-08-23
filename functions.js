@@ -45,7 +45,6 @@ function showTable(data) {
             deadline =  moment(data[i].deadline, "YYYY-MM-DD").format('L');
         }
 
-
         tableBody += '<tr>' +
                          '<td class="firstcol">' + data[i].id + '</td>' +
                          '<td>' + data[i].title + '</td>' +
