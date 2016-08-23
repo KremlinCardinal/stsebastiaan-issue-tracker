@@ -45,7 +45,7 @@ function showTable(data) {
             deadline =  moment(data[i].deadline, "YYYY-MM-DD").format('L');
         }
 
-        tableBody += '<tr>' +
+        tableBody += '<tr data-issue=\'' + JSON.stringify(data[i]) + '\'>' +
                          '<td class="firstcol">' + data[i].id + '</td>' +
                          '<td>' + data[i].title + '</td>' +
                          '<td class="u-capitalize">' + data[i].cat_name + '</td>' +
@@ -60,10 +60,27 @@ function showTable(data) {
     $('#result').html(htm);
 
     $('.js-modal-info').click(function () {
-       openInfoModal();
+        var issuedata = $(this).parent().parent().data('issue');
+       openInfoModal(issuedata);
     });
 }
 
-function openInfoModal() {
+function openInfoModal(issuedata) {
+    $('#modal-info .u-infomodal-id').text(issuedata.id);
+    $('#modal-info .u-infomodal-deadline').text(issuedata.deadline);
+    $('#modal-info .u-infomodal-title').text(capitalizeFirstLetter(issuedata.title));
+    $('#modal-info .u-infomodal-description').text(issuedata.description);
+    $('#modal-info .u-infomodal-category').text(capitalizeFirstLetter(issuedata.cat_name));
+    $('#modal-info .u-infomodal-status').text(capitalizeFirstLetter(issuedata.status_name));
+    $('#modal-info .u-infomodal-lastedit').text(issuedata.last_edit);
+    $('#modal-info .u-infomodal-createdon').text(issuedata.created_on);
+    $('#modal-info .u-infomodal-createdby').text(capitalizeFirstLetter(issuedata.created_by));
+    $('#modal-info .u-infomodal-supervisor').text(capitalizeFirstLetter(issuedata.supervisor));
+    $('#modal-info .u-infomodal-assignedto').text(capitalizeFirstLetter(issuedata.assigned_to));
+
     $("#modal-info").openModal();
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }

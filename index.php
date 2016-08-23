@@ -47,8 +47,48 @@ session_start();
 
 <div id="modal-info" class="modal">
     <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <h4>Issue detail</h4>
+        <table class="bordered">
+            <tr>
+                <td>ID</td>
+                <td class="u-infomodal-id" colspan="3"></td>
+            </tr>
+            <tr>
+                <td>Categorie</td>
+                <td class="u-infomodal-category"></td>
+                <td>Status</td>
+                <td class="u-infomodal-status"></td>
+            </tr>
+            <tr>
+                <td>Aangemaakt op</td>
+                <td class="u-infomodal-createdon"></td>
+                <td>Laatst gewijzigd</td>
+                <td class="u-infomodal-lastedit"></td>
+            </tr>
+            <tr>
+                <td>Deadline</td>
+                <td class="u-infomodal-deadline" colspan="3"></td>
+            </tr>
+            <tr>
+                <td>Aangemaakt door</td>
+                <td class="u-infomodal-createdby"></td>
+                <td>Supervisor</td>
+                <td class="u-infomodal-supervisor"></td>
+            </tr>
+            <tr>
+                <td>Toegewezen aan</td>
+                <td class="u-infomodal-assignedto" colspan="3"></td>
+            </tr>
+
+            <tr>
+                <td>Titel</td>
+                <td class="u-infomodal-title" colspan="3"></td>
+            </tr>
+            <tr>
+                <td>Omschrijving</td>
+                <td class="u-infomodal-description" colspan="3"></td>
+            </tr>
+        </table>
     </div>
     <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>

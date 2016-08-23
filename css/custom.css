@@ -77,3 +77,7 @@ nav {
 .u-capitalize {
     text-transform: capitalize;
 }
+
+#modal-info tr td:nth-child(2n+1) {
+    font-weight: bold;
+}
