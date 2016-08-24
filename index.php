@@ -50,48 +50,47 @@ session_start();
         <h4>Issue detail</h4>
         <table class="bordered">
             <tr>
-                <td>ID</td>
-                <td class="u-infomodal-id" colspan="3"></td>
+                <td class="u-w25">ID</td>
+                <td class="u-infomodal-id u-w75" colspan="3"></td>
             </tr>
             <tr>
-                <td>Categorie</td>
-                <td class="u-infomodal-category"></td>
-                <td>Status</td>
-                <td class="u-infomodal-status"></td>
+                <td class="u-w25">Categorie</td>
+                <td class="u-infomodal-category u-w25"></td>
+                <td class="u-w25">Status</td>
+                <td class="u-infomodal-status u-w25"></td>
             </tr>
             <tr>
-                <td>Aangemaakt op</td>
-                <td class="u-infomodal-createdon"></td>
-                <td>Laatst gewijzigd</td>
-                <td class="u-infomodal-lastedit"></td>
+                <td class="u-w25">Aangemaakt op</td>
+                <td class="u-infomodal-createdon u-w25"></td>
+                <td class="u-w25">Laatst gewijzigd</td>
+                <td class="u-infomodal-lastedit u-w25"></td>
             </tr>
             <tr>
-                <td>Deadline</td>
-                <td class="u-infomodal-deadline" colspan="3"></td>
+                <td class="u-w25">Deadline</td>
+                <td class="u-infomodal-deadline u-w75" colspan="3"></td>
             </tr>
             <tr>
-                <td>Aangemaakt door</td>
-                <td class="u-infomodal-createdby"></td>
-                <td>Supervisor</td>
-                <td class="u-infomodal-supervisor"></td>
+                <td class="u-w25">Aangemaakt door</td>
+                <td class="u-infomodal-createdby u-w25"></td>
+                <td class="u-w25">Supervisor</td>
+                <td class="u-infomodal-supervisor u-w25"></td>
             </tr>
             <tr>
-                <td>Toegewezen aan</td>
-                <td class="u-infomodal-assignedto" colspan="3"></td>
-            </tr>
-
-            <tr>
-                <td>Titel</td>
-                <td class="u-infomodal-title" colspan="3"></td>
+                <td class="u-w25">Toegewezen aan</td>
+                <td class="u-infomodal-assignedto u-w75" colspan="3"></td>
             </tr>
             <tr>
-                <td>Omschrijving</td>
-                <td class="u-infomodal-description" colspan="3"></td>
+                <td class="u-w25">Titel</td>
+                <td class="u-infomodal-title u-w75" colspan="3"></td>
+            </tr>
+            <tr>
+                <td class="u-w25">Omschrijving</td>
+                <td class="u-infomodal-description u-w75" colspan="3"></td>
             </tr>
         </table>
     </div>
     <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
     </div>
 </div>
 

@@ -47,11 +47,11 @@ function showTable(data) {
 
         tableBody += '<tr data-issue=\'' + JSON.stringify(data[i]) + '\'>' +
                          '<td class="firstcol">' + data[i].id + '</td>' +
-                         '<td>' + data[i].title + '</td>' +
-                         '<td class="u-capitalize">' + data[i].cat_name + '</td>' +
-                         '<td class="u-capitalize">' + data[i].assigned_to + '</td>' +
+                         '<td>' + capitalizeFirstLetter(data[i].title) + '</td>' +
+                         '<td>' + capitalizeFirstLetter(data[i].cat_name) + '</td>' +
+                         '<td>' + capitalizeFirstLetter(data[i].assigned_to) + '</td>' +
                          '<td>' + deadline + '</td>' +
-                         '<td class="u-capitalize"><span class="c-badge u-new u-badge-' + data[i].status_name + '">' + data[i].status_name + '</span></td>' +
+                         '<td><span class="c-badge u-new u-badge-' + data[i].status_name + '">' + capitalizeFirstLetter(data[i].status_name) + '</span></td>' +
                          '<td class="lastcol"><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>' +
                      '</tr>';
     }
@@ -66,17 +66,17 @@ function showTable(data) {
 }
 
 function openInfoModal(issuedata) {
-    $('#modal-info .u-infomodal-id').text(issuedata.id);
-    $('#modal-info .u-infomodal-deadline').text(issuedata.deadline);
-    $('#modal-info .u-infomodal-title').text(capitalizeFirstLetter(issuedata.title));
-    $('#modal-info .u-infomodal-description').text(issuedata.description);
-    $('#modal-info .u-infomodal-category').text(capitalizeFirstLetter(issuedata.cat_name));
-    $('#modal-info .u-infomodal-status').text(capitalizeFirstLetter(issuedata.status_name));
-    $('#modal-info .u-infomodal-lastedit').text(issuedata.last_edit);
-    $('#modal-info .u-infomodal-createdon').text(issuedata.created_on);
-    $('#modal-info .u-infomodal-createdby').text(capitalizeFirstLetter(issuedata.created_by));
-    $('#modal-info .u-infomodal-supervisor').text(capitalizeFirstLetter(issuedata.supervisor));
-    $('#modal-info .u-infomodal-assignedto').text(capitalizeFirstLetter(issuedata.assigned_to));
+    $('#modal-info .u-infomodal-id').html(issuedata.id);
+    $('#modal-info .u-infomodal-deadline').html(moment(issuedata.deadline, "YYYY-MM-DD").format('L'));
+    $('#modal-info .u-infomodal-title').html(capitalizeFirstLetter(issuedata.title));
+    $('#modal-info .u-infomodal-description').html(issuedata.description);
+    $('#modal-info .u-infomodal-category').html(capitalizeFirstLetter(issuedata.cat_name));
+    $('#modal-info .u-infomodal-status').html('<span class="c-badge u-new u-badge-' + issuedata.status_name + '">' + capitalizeFirstLetter(issuedata.status_name) + '</span>');
+    $('#modal-info .u-infomodal-lastedit').html(moment(issuedata.last_edit, "YYYY-MM-DD").format('L'));
+    $('#modal-info .u-infomodal-createdon').html(moment(issuedata.created_on, "YYYY-MM-DD").format('L'));
+    $('#modal-info .u-infomodal-createdby').html(capitalizeFirstLetter(issuedata.created_by));
+    $('#modal-info .u-infomodal-supervisor').html(capitalizeFirstLetter(issuedata.supervisor));
+    $('#modal-info .u-infomodal-assignedto').html(capitalizeFirstLetter(issuedata.assigned_to));
 
     $("#modal-info").openModal();
 }

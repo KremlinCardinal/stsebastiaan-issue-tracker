@@ -10,6 +10,27 @@ footer.page-footer {
     padding-top: 0;
 }
 
+.firstcol {
+    padding-left: 1em;
+}
+
+nav {
+    margin-bottom: 1em;
+}
+
+.nav-wrapper,
+.page-footer {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+#modal-info tr td:nth-child(2n+1) {
+    font-weight: bold;
+}
+
+/***************************/
+/*     Utility classes     */
+/***************************/
 .c-badge {
     min-width: 3rem;
     padding: 0 6px;
@@ -60,24 +81,22 @@ footer.page-footer {
     padding: 0.5em;
 }
 
-.firstcol {
-    padding-left: 1em;
-}
-
-nav {
-    margin-bottom: 1em;
-}
-
-.nav-wrapper,
-.page-footer {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
 .u-capitalize {
     text-transform: capitalize;
 }
 
-#modal-info tr td:nth-child(2n+1) {
-    font-weight: bold;
+.u-w25 {
+    width: 25%;
+}
+
+.u-w50 {
+    width: 50%;
+}
+
+.u-w75 {
+    width: 75%;
+}
+
+.u-w100 {
+    width: 100%;
 }
