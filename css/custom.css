@@ -100,3 +100,15 @@ nav {
 .u-w100 {
     width: 100%;
 }
+
+/*************************/
+/*     Miscellaneous     */
+/*************************/
+
+/* This is the hidden input, to prevent bots from registering */
+/* Additionally we could use a captcha in our register form   */
+#favorite_pizza {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}

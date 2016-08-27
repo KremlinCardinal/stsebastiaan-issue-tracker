@@ -24,11 +24,13 @@ session_start();
         <a id="logo-container" href="" class="brand-logo">St. Sebastiaan - Issue Tracker</a>
 
         <ul class="right hide-on-med-and-down">
-            <li><a class="modal-trigger" href="#contact-modal">Login</a></li>
+            <li><a class="modal-trigger" href="#">Inloggen</a></li>
+            <li><a class="modal-trigger" href="#modal-register">Registreren</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
-            <li><a class="modal-trigger" href="#contact-modal">Login</a></li>
+            <li><a class="modal-trigger" href="#">Inloggen</a></li>
+            <li><a class="modal-trigger" href="#modal-register">Registreren</a></li>
         </ul>
 
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -91,6 +93,60 @@ session_start();
     </div>
     <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
+    </div>
+</div>
+
+<div id="modal-register" class="modal">
+    <div class="modal-content">
+        <div class="row">
+            <form id="registration-form" class="col s12">
+                <div class="row">
+                    <div class="col s12">
+                        <h4>Registreren</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m4">
+                        <input id="favorite_pizza" name="favorite_pizza" type="text" class="validate">
+                        <input id="first_name" name="first_name" type="text" class="validate">
+                        <label for="first_name">Voornaam<sup>*</sup></label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <input id="between_name" name="between_name" type="text" class="validate">
+                        <label for="between_name">tussenvoegsel</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <input id="last_name" name="last_name" type="text" class="validate">
+                        <label for="last_name">Achternaam<sup>*</sup></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="divider"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" name="email" type="email" class="validate">
+                        <label for="email">E-mail (hiermee log je in)<sup>*</sup></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" name="password" type="password" class="validate">
+                        <label for="password">Wachtwoord<sup>*</sup></label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="password2" name="password2" type="password" class="validate">
+                        <label for="password2">Wachtwoord herhalen<sup>*</sup></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
+        <a id="modal-register-submit" href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Verzenden</a>
     </div>
 </div>
 

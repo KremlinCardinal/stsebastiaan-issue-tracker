@@ -14,13 +14,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Database: `stsebastiaan_issue_tracker`
+-- Database: `michiel_ssit`
 --
-CREATE DATABASE IF NOT EXISTS `stsebastiaan_issue_tracker` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `stsebastiaan_issue_tracker`;
+CREATE DATABASE IF NOT EXISTS `michiel_ssit` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `michiel_ssit`;
 
 -- --------------------------------------------------------
 

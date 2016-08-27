@@ -2,10 +2,11 @@
 session_start();
 
 require_once 'class_database.php';
+require 'password.php';
 
 $db = new database();
 
-if($_POST['action'] == 'getall') {
+if($_POST['action'] == 'getAll') {
     $issuesQuery = "SELECT issues.id, issues.title, issues.description, issues.created_by, issues.created_on, issues.deadline, issues.supervisor, issues.assigned_to, statusses.status_name, issues.last_edit, categories.cat_name
                     FROM issues, statusses, categories
                     WHERE issues.status = statusses.id
@@ -26,6 +27,9 @@ if($_POST['action'] == 'getall') {
     echo json_encode($completeArray);
 }
 
+if($_POST['action'] == 'register') {
+
+}
 
 
 function processGetAll($issuesArray, $usersArray) {

@@ -1,7 +1,7 @@
 function getAll() {
     $.ajax({
         url: 'api.php',
-        data: 'action=getall',
+        data: 'action=getAll',
         type: 'POST',
         dataType: 'json',
         success: function (result) {
@@ -15,6 +15,10 @@ function getAll() {
             console.log(xhr);
         }
     });
+}
+
+function register(formdata) {
+
 }
 
 function showTable(data) {
@@ -81,6 +85,10 @@ function openInfoModal(issuedata) {
     $("#modal-info").openModal();
 }
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+function capitalizeFirstLetter(text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function validateRegistrationForm() {
+    // form validation
 }

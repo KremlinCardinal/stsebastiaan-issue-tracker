@@ -9,4 +9,9 @@ $(document).ready(function() {
 
     getAll();
 
+    $('#modal-register-submit').click(function () {
+        var formdata = $('#registration-form').serialize();
+        console.log(formdata);
+        register();
+    });
 });
