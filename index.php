@@ -97,9 +97,10 @@ session_start();
 </div>
 
 <div id="modal-register" class="modal">
+    <form id="registration-form">
     <div class="modal-content">
         <div class="row">
-            <form id="registration-form" class="col s12">
+
                 <div class="row">
                     <div class="col s12">
                         <h4>Registreren</h4>
@@ -141,17 +142,21 @@ session_start();
                         <label for="password2">Wachtwoord herhalen<sup>*</sup></label>
                     </div>
                 </div>
-            </form>
+
+            </div>
         </div>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
-        <a id="modal-register-submit" href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Verzenden</a>
-    </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
+            <button type="submit" id="modal-register-submit" class="modal-action waves-effect waves-ripple btn-flat">Verzenden</button>
+        </div>
+    </form>
 </div>
 
 <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="lib/moment-with-locales.js"></script>
+<script type="text/javascript" src="lib/jquery-validation-1.15.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="lib/jquery-validation-1.15.1/additional-methods.min.js"></script>
+<script type="text/javascript" src="lib/jquery-validation-1.15.1/localization/messages_nl.min.js"></script>
 <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
 
 <script type="text/javascript" src="default.js"></script>

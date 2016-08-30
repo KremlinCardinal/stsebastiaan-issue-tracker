@@ -27,8 +27,8 @@ if($_POST['action'] == 'getAll') {
     echo json_encode($completeArray);
 }
 
-if($_POST['action'] == 'register') {
-
+if($_POST['action'] == 'registerUser') {
+    print_r($_POST);
 }
 
 

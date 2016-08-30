@@ -1,3 +1,7 @@
+/**
+ * TODO: Remove console logs
+ */
+
 function getAll() {
     $.ajax({
         url: 'api.php',
@@ -18,7 +22,23 @@ function getAll() {
 }
 
 function register(formdata) {
+    console.log(formdata);
 
+    $.ajax({
+        url: 'api.php',
+        data: 'action=registerUser&'+formdata,
+        type: 'POST',
+        // dataType: 'json',
+        success: function (result) {
+            console.log(result);
+        },
+        error: function (xhr, status, errorThrown) {
+            alert("Sorry, there was a problem!");
+            console.log("Error: "+errorThrown);
+            console.log("Status: "+status);
+            console.log(xhr);
+        }
+    });
 }
 
 function showTable(data) {
@@ -87,8 +107,4 @@ function openInfoModal(issuedata) {
 
 function capitalizeFirstLetter(text) {
     return text.charAt(0).toUpperCase() + text.slice(1);
-}
-
-function validateRegistrationForm() {
-    // form validation
 }
