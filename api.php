@@ -28,7 +28,32 @@ if($_POST['action'] == 'getAll') {
 }
 
 if($_POST['action'] == 'registerUser') {
-    print_r($_POST);
+    if(empty($_POST['favorite_pizza'])) {
+        //check if entered email already exists
+        $email = $db->escapeString($_POST['email']);
+        $emailQuery = "SELECT email FROM users WHERE email = \"$email\"";
+        $emailResult = $db->executeQuery($emailQuery, true);
+        $emailNumRows = mysqli_num_rows($emailResult);
+
+        if($emailNumRows === 0) {
+            //register new user
+            //hash password using blowfish
+            $firstname = $db->escapeString($_POST['first_name']);
+            $betweenname = $db->escapeString($_POST['between_name']);
+            $lastname = $db->escapeString($_POST['last_name']);
+            $hash = password_hash($_POST['password'], PASSWORD_BCRYPT, array("cost" => 10));
+            $hashedPassword = $db->escapeString($hash);
+            $registerQuery = "INSERT INTO users (first_name, between_name, last_name, email, hash) VALUES (\"$firstname\", \"$betweenname\", \"$lastname\", \"$email\", \"$hashedPassword\")";
+            $db->executeQuery($registerQuery);
+            echo 'success';
+        } else {
+            //user already exists
+            echo 'user_already_exists';
+        }
+    } else {
+        //hidden input not empty, bot detected
+        echo 'bot_detected';
+    }
 }
 
 

@@ -1,7 +1,3 @@
-/**
- * TODO: Remove console logs
- */
-
 function getAll() {
     $.ajax({
         url: 'api.php',
@@ -9,7 +5,6 @@ function getAll() {
         type: 'POST',
         dataType: 'json',
         success: function (result) {
-            console.log(result);
             showTable(result);
         },
         error: function (xhr, status, errorThrown) {
@@ -22,15 +17,14 @@ function getAll() {
 }
 
 function register(formdata) {
-    console.log(formdata);
+    $('#modal-register').closeModal();
 
     $.ajax({
         url: 'api.php',
         data: 'action=registerUser&'+formdata,
         type: 'POST',
-        // dataType: 'json',
         success: function (result) {
-            console.log(result);
+            processRegisterResults(result);
         },
         error: function (xhr, status, errorThrown) {
             alert("Sorry, there was a problem!");
@@ -107,4 +101,21 @@ function openInfoModal(issuedata) {
 
 function capitalizeFirstLetter(text) {
     return text.charAt(0).toUpperCase() + text.slice(1);
+}
+
+function processRegisterResults(result) {
+    switch(result) {
+        case 'bot_detected':
+            Materialize.toast('Something went wrong!', 4000);
+            break;
+        case 'user_already_exists':
+            Materialize.toast('Er is al een gebruiker met uw e-mail adres!', 4000);
+            break;
+        case 'success':
+            Materialize.toast('Account succesvol geregistreerd!', 4000);
+            break;
+        default:
+            Materialize.toast('Something went wrong!', 4000);
+            break;
+    }
 }
