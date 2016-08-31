@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Gegenereerd op: 24 aug 2016 om 16:43
+-- Gegenereerd op: 31 aug 2016 om 12:13
 -- Serverversie: 5.6.26
 -- PHP-versie: 5.6.12
 
@@ -14,13 +14,13 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `michiel_ssit`
+-- Database: `stsebastiaan_issue_tracker`
 --
-CREATE DATABASE IF NOT EXISTS `michiel_ssit` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `michiel_ssit`;
+CREATE DATABASE IF NOT EXISTS `stsebastiaan_issue_tracker` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `stsebastiaan_issue_tracker`;
 
 -- --------------------------------------------------------
 
@@ -116,19 +116,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `between_name` varchar(255) DEFAULT NULL,
   `last_name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `salt` varchar(255) DEFAULT NULL,
-  `level` int(11) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+  `hash` varchar(255) DEFAULT NULL,
+  `level` int(11) NOT NULL DEFAULT '0',
+  `active` int(11) DEFAULT '0'
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `between_name`, `last_name`, `email`, `password`, `salt`, `level`) VALUES
-(1, '-', NULL, NULL, NULL, NULL, NULL, 0),
-(2, 'Michiel', NULL, 'Dijk', 'michiellof@gmail.com', NULL, NULL, 5),
-(3, 'henk', 'van', 'berend', 'test@email.com', NULL, NULL, 5);
+INSERT INTO `users` (`id`, `first_name`, `between_name`, `last_name`, `email`, `hash`, `level`, `active`) VALUES
+(1, '-', NULL, NULL, NULL, NULL, 0, 0);
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -181,7 +179,7 @@ ALTER TABLE `statusses`
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
