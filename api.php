@@ -56,7 +56,6 @@ if($_POST['action'] == 'registerUser') {
     }
 }
 
-
 function processGetAll($issuesArray, $usersArray) {
     $issuesArrayLength = count($issuesArray);
 

@@ -1,5 +1,25 @@
 <?php
 session_start();
+
+if($_SESSION['logged_in']) {
+    $nav = '<ul class="right hide-on-med-and-down">
+                <li><a class="modal-trigger" href="#">Uitloggen</a></li>
+            </ul>
+    
+            <ul id="nav-mobile" class="side-nav">
+                 <li><a class="modal-trigger" href="#">Uitloggen</a></li>
+            </ul>';
+} else {
+    $nav = '<ul class="right hide-on-med-and-down">
+                <li><a class="modal-trigger" href="#modal-login">Inloggen</a></li>
+                <li><a class="modal-trigger" href="#modal-register">Registreren</a></li>
+            </ul>
+    
+            <ul id="nav-mobile" class="side-nav">
+                <li><a class="modal-trigger" href="#modal-login">Inloggen</a></li>
+                <li><a class="modal-trigger" href="#modal-register">Registreren</a></li>
+            </ul>';
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,15 +43,7 @@ session_start();
     <div class="nav-wrapper">
         <a id="logo-container" href="" class="brand-logo">St. Sebastiaan - Issue Tracker</a>
 
-        <ul class="right hide-on-med-and-down">
-            <li><a class="modal-trigger" href="#">Inloggen</a></li>
-            <li><a class="modal-trigger" href="#modal-register">Registreren</a></li>
-        </ul>
-
-        <ul id="nav-mobile" class="side-nav">
-            <li><a class="modal-trigger" href="#">Inloggen</a></li>
-            <li><a class="modal-trigger" href="#modal-register">Registreren</a></li>
-        </ul>
+        <?= $nav ?>
 
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -40,6 +52,12 @@ session_start();
 <div id="result">
 
 </div>
+
+<pre>
+    <?php
+    print_r($_SESSION);
+    ?>
+</pre>
 
 <footer class="page-footer indigo">
     <div class="footer-copyright">
@@ -100,7 +118,6 @@ session_start();
     <form id="registration-form">
     <div class="modal-content">
         <div class="row">
-
                 <div class="row">
                     <div class="col s12">
                         <h4>Registreren</h4>
@@ -148,6 +165,36 @@ session_start();
         <div class="modal-footer">
             <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
             <button type="submit" id="modal-register-submit" class="modal-action waves-effect waves-ripple btn-flat">Verzenden</button>
+        </div>
+    </form>
+</div>
+
+<div id="modal-login" class="modal">
+    <form id="login-form" method="post" action="login.php">
+    <div class="modal-content">
+        <div class="row">
+                <div class="row">
+                    <div class="col s12">
+                        <h4>Inloggen</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="favorite_pizza" name="favorite_pizza" type="text" class="validate">
+                        <input id="email" name="email" type="email" class="validate">
+                        <label for="email">E-mail<sup>*</sup></label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="password" name="password" type="password" class="validate">
+                        <label for="password">Wachtwoord<sup>*</sup></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
+            <button type="submit" id="modal-login-submit" class="modal-action waves-effect waves-ripple btn-flat">Inloggen</button>
         </div>
     </form>
 </div>

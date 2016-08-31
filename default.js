@@ -29,7 +29,7 @@ $(document).ready(function() {
             },
             password: {
                 required: true,
-                minlength: 5,
+                minlength: 5
             },
             password2: {
                 required: true,
@@ -49,6 +49,28 @@ $(document).ready(function() {
         submitHandler: function (form) {
             var formdata = $(form).serialize();
             register(formdata);
+        }
+    });
+
+    $('#login-form').validate({
+        lang: 'nl',
+        rules: {
+            email: {
+                required: true,
+                email: true
+            },
+            password: {
+                required: true
+            }
+        },
+        errorElement : 'div',
+        errorPlacement: function(error, element) {
+            var placement = $(element).data('error');
+            if (placement) {
+                $(placement).append(error)
+            } else {
+                error.insertAfter(element);
+            }
         }
     });
 });
