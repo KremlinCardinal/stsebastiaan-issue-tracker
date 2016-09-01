@@ -1,0 +1,61 @@
+html {
+    display: table;
+    margin: auto;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.login-form,
+.registration-form {
+    width: 280px;
+}
+
+.margin {
+    margin: 0 !important;
+}
+
+/* This is the hidden input, to prevent bots from registering */
+/* Additionally we could use a captcha in our register form   */
+#favorite_pizza {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+
+.input-field input.no-icon,
+.input-field textarea.no-icon,
+.input-field .no-icon.autocomplete-content {
+    margin-left: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem);
+}
+
+.input-field.col .no-icon ~ label,
+.input-field.col .no-icon ~ .validate ~ label {
+    margin-left: 3rem;
+    width: calc(100% - 3rem - 1.5rem);
+}
+
+.input-field div.error {
+    position: relative;
+    top: -1rem;
+    left: 0rem;
+    width: calc(100% - 3rem - 1.5rem);
+    margin-left: 3rem;
+    font-size: 0.8rem;
+    color: #F44336;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}

@@ -70,7 +70,7 @@ function showTable(data) {
                          '<td>' + capitalizeFirstLetter(data[i].assigned_to) + '</td>' +
                          '<td>' + deadline + '</td>' +
                          '<td><span class="c-badge u-new u-badge-' + data[i].status_name + '">' + capitalizeFirstLetter(data[i].status_name) + '</span></td>' +
-                         '<td class="lastcol"><i class="fa fa-info-circle u-modal-link js-modal-info" aria-hidden="true"></i></td>' +
+                         '<td class="lastcol"><i class="material-icons u-modal-link js-modal-info">info_outline</i></td>' +
                      '</tr>';
     }
 

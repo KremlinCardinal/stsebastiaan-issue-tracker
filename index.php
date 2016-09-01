@@ -1,24 +1,9 @@
 <?php
 session_start();
 
-if($_SESSION['logged_in']) {
-    $nav = '<ul class="right hide-on-med-and-down">
-                <li><a class="modal-trigger" href="#">Uitloggen</a></li>
-            </ul>
-    
-            <ul id="nav-mobile" class="side-nav">
-                 <li><a class="modal-trigger" href="#">Uitloggen</a></li>
-            </ul>';
-} else {
-    $nav = '<ul class="right hide-on-med-and-down">
-                <li><a class="modal-trigger" href="#modal-login">Inloggen</a></li>
-                <li><a class="modal-trigger" href="#modal-register">Registreren</a></li>
-            </ul>
-    
-            <ul id="nav-mobile" class="side-nav">
-                <li><a class="modal-trigger" href="#modal-login">Inloggen</a></li>
-                <li><a class="modal-trigger" href="#modal-register">Registreren</a></li>
-            </ul>';
+if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false) {
+    header('Location: user-login.php');
+    exit;
 }
 ?>
 
@@ -43,7 +28,15 @@ if($_SESSION['logged_in']) {
     <div class="nav-wrapper">
         <a id="logo-container" href="" class="brand-logo">St. Sebastiaan - Issue Tracker</a>
 
-        <?= $nav ?>
+        <ul class="right hide-on-med-and-down">
+            <li>Ingelogd als: <?= $_SESSION['user_email'] ?></li>
+            <li><a class="modal-trigger" href="#">Uitloggen</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+            <li>Ingelogd als:  <?= $_SESSION['user_email'] ?></li>
+            <li><a class="modal-trigger" href="#">Uitloggen</a></li>
+        </ul>
 
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
@@ -114,91 +107,6 @@ if($_SESSION['logged_in']) {
     </div>
 </div>
 
-<div id="modal-register" class="modal">
-    <form id="registration-form">
-    <div class="modal-content">
-        <div class="row">
-                <div class="row">
-                    <div class="col s12">
-                        <h4>Registreren</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12 m4">
-                        <input id="favorite_pizza" name="favorite_pizza" type="text" class="validate">
-                        <input id="first_name" name="first_name" type="text" class="validate">
-                        <label for="first_name">Voornaam<sup>*</sup></label>
-                    </div>
-                    <div class="input-field col s12 m4">
-                        <input id="between_name" name="between_name" type="text" class="validate">
-                        <label for="between_name">tussenvoegsel</label>
-                    </div>
-                    <div class="input-field col s12 m4">
-                        <input id="last_name" name="last_name" type="text" class="validate">
-                        <label for="last_name">Achternaam<sup>*</sup></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
-                        <div class="divider"></div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" name="email" type="email" class="validate">
-                        <label for="email">E-mail (hiermee log je in)<sup>*</sup></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" name="password" type="password" class="validate">
-                        <label for="password">Wachtwoord<sup>*</sup></label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input id="password2" name="password2" type="password" class="validate">
-                        <label for="password2">Wachtwoord herhalen<sup>*</sup></label>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
-            <button type="submit" id="modal-register-submit" class="modal-action waves-effect waves-ripple btn-flat">Verzenden</button>
-        </div>
-    </form>
-</div>
-
-<div id="modal-login" class="modal">
-    <form id="login-form" method="post" action="login.php">
-    <div class="modal-content">
-        <div class="row">
-                <div class="row">
-                    <div class="col s12">
-                        <h4>Inloggen</h4>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="favorite_pizza" name="favorite_pizza" type="text" class="validate">
-                        <input id="email" name="email" type="email" class="validate">
-                        <label for="email">E-mail<sup>*</sup></label>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" name="password" type="password" class="validate">
-                        <label for="password">Wachtwoord<sup>*</sup></label>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
-            <button type="submit" id="modal-login-submit" class="modal-action waves-effect waves-ripple btn-flat">Inloggen</button>
-        </div>
-    </form>
-</div>
-
 <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="lib/moment-with-locales.js"></script>
 <script type="text/javascript" src="lib/jquery-validation-1.15.1/jquery.validate.min.js"></script>
@@ -206,8 +114,8 @@ if($_SESSION['logged_in']) {
 <script type="text/javascript" src="lib/jquery-validation-1.15.1/localization/messages_nl.min.js"></script>
 <script type="text/javascript" src="lib/materialize/js/materialize.min.js"></script>
 
-<script type="text/javascript" src="default.js"></script>
-<script type="text/javascript" src="functions.js"></script>
+<script type="text/javascript" src="js/default.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
 
 </body>
 </html>
