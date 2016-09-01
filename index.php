@@ -30,12 +30,12 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false) {
 
         <ul class="right hide-on-med-and-down">
             <li>Ingelogd als: <?= $_SESSION['user_email'] ?></li>
-            <li><a class="modal-trigger" href="#">Uitloggen</a></li>
+            <li><a href="logout.php">Uitloggen</a></li>
         </ul>
 
         <ul id="nav-mobile" class="side-nav">
             <li>Ingelogd als:  <?= $_SESSION['user_email'] ?></li>
-            <li><a class="modal-trigger" href="#">Uitloggen</a></li>
+            <li><a href="logout.php">Uitloggen</a></li>
         </ul>
 
         <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -45,12 +45,6 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false) {
 <div id="result">
 
 </div>
-
-<pre>
-    <?php
-    print_r($_SESSION);
-    ?>
-</pre>
 
 <footer class="page-footer indigo">
     <div class="footer-copyright">

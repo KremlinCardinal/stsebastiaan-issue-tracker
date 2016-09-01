@@ -21,8 +21,8 @@ if(empty($_POST['favorite_pizza'])) {
         $lastname = $db->escapeString($_POST['last_name']);
         $hash = password_hash($_POST['password'], PASSWORD_BCRYPT, array("cost" => 10));
         $hashedPassword = $db->escapeString($hash);
-//        $registerQuery = "INSERT INTO users (first_name, between_name, last_name, email, hash) VALUES (\"$firstname\", \"$betweenname\", \"$lastname\", \"$email\", \"$hashedPassword\")";
-//        $db->executeQuery($registerQuery);
+        $registerQuery = "INSERT INTO users (first_name, between_name, last_name, email, hash) VALUES (\"$firstname\", \"$betweenname\", \"$lastname\", \"$email\", \"$hashedPassword\")";
+        $db->executeQuery($registerQuery);
         $_SESSION['register_result'] = 'success';
         header('Location: user-login.php');
     } else {
