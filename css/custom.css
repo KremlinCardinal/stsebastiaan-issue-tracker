@@ -1,5 +1,7 @@
 html {
-    background-color: #303f9f;
+    position: relative;
+    min-height: 100%;
+    /*background-color: #303f9f;*/
 }
 
 body {
@@ -26,6 +28,13 @@ nav {
 
 #modal-info tr td:nth-child(2n+1) {
     font-weight: bold;
+}
+
+footer.page-footer {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
 }
 
 /***************************/

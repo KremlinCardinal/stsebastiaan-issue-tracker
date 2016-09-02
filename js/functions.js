@@ -16,15 +16,18 @@ function getAll() {
     });
 }
 
-function register(formdata) {
-    $('#modal-register').closeModal();
-
+function newIssue(issueData) {
     $.ajax({
         url: 'api.php',
-        data: 'action=registerUser&'+formdata,
+        data: 'action=newIssue&'+issueData,
         type: 'POST',
         success: function (result) {
-            processRegisterResults(result);
+            if(result == 'success') {
+                Materialize.toast("Issue opgeslagen.", 4000);
+                getAll();
+            } else {
+                Materialize.toast("Er is iets fout gegaan!", 4000);
+            }
         },
         error: function (xhr, status, errorThrown) {
             alert("Sorry, there was a problem!");
@@ -44,6 +47,7 @@ function showTable(data) {
                                 '<th>Categorie</th>' +
                                 '<th>Toegewezen aan</th>' +
                                 '<th>Deadline</th>' +
+                                '<th>Laatst bijgewerkt</th>' +
                                 '<th>Status</th>' +
                                 '<th class="lastcol">Info</th>' +
                             '</tr>' +
@@ -58,9 +62,14 @@ function showTable(data) {
     for(var i = 0; i < data.length; i++) {
 
         var deadline = data[i].deadline;
+        var lastEdit = data[i].last_edit;
 
         if(data[i].deadline !== '-') {
             deadline =  moment(data[i].deadline, "YYYY-MM-DD").format('L');
+        }
+
+        if(data[i].last_edit !== '-') {
+            lastEdit =  moment(data[i].last_edit, "YYYY-MM-DD").format('L');
         }
 
         tableBody += '<tr data-issue=\'' + JSON.stringify(data[i]) + '\'>' +
@@ -69,6 +78,7 @@ function showTable(data) {
                          '<td>' + capitalizeFirstLetter(data[i].cat_name) + '</td>' +
                          '<td>' + capitalizeFirstLetter(data[i].assigned_to) + '</td>' +
                          '<td>' + deadline + '</td>' +
+                         '<td>' + lastEdit + '</td>' +
                          '<td><span class="c-badge u-new u-badge-' + data[i].status_name + '">' + capitalizeFirstLetter(data[i].status_name) + '</span></td>' +
                          '<td class="lastcol"><i class="material-icons u-modal-link js-modal-info">info_outline</i></td>' +
                      '</tr>';
@@ -79,7 +89,7 @@ function showTable(data) {
 
     $('.js-modal-info').click(function () {
         var issuedata = $(this).parent().parent().data('issue');
-       openInfoModal(issuedata);
+        openInfoModal(issuedata);
     });
 }
 
@@ -99,23 +109,18 @@ function openInfoModal(issuedata) {
     $("#modal-info").openModal();
 }
 
+function openNewIssueModal() {
+    $("#modal-new-issue").openModal();
+}
+
 function capitalizeFirstLetter(text) {
     return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-function processRegisterResults(result) {
-    switch(result) {
-        case 'bot_detected':
-            Materialize.toast('Something went wrong!', 4000);
-            break;
-        case 'user_already_exists':
-            Materialize.toast('Er is al een gebruiker met uw e-mail adres!', 4000);
-            break;
-        case 'success':
-            Materialize.toast('Account succesvol geregistreerd!', 4000);
-            break;
-        default:
-            Materialize.toast('Something went wrong!', 4000);
-            break;
+function checkSelectedValue(val) {
+    if(val == null || val == 'default') {
+        return false;
+    } else {
+        return true;
     }
 }

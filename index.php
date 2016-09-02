@@ -5,6 +5,13 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false) {
     header('Location: user-login.php');
     exit;
 }
+
+require_once 'api.php';
+$categories = getCategories();
+$catOptions = '';
+foreach($categories as $category) {
+    $catOptions .= "<option value=\"" . $category['id'] . "\">" . ucfirst($category['cat_name']) . "</option>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +51,12 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false) {
 
 <div id="result">
 
+</div>
+
+<div id="new-issue" class="fixed-action-btn">
+    <a class="btn btn-floating btn-large red js-modal-new-issue">
+        <i class="material-icons">add</i>
+    </a>
 </div>
 
 <footer class="page-footer indigo">
@@ -99,6 +112,44 @@ if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] === false) {
     <div class="modal-footer">
         <a href="#!" class=" modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
     </div>
+</div>
+
+<div id="modal-new-issue" class="modal">
+    <form id="add-issue-form">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s12">
+                    <h4>Nieuw issue aanmaken</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <input id="favorite_pizza" name="favorite_pizza" type="text" class="validate">
+                    <select name="issue_category" id="issue_category">
+                        <option value="default" selected disabled>Maak een keuze</option>
+                        <?= $catOptions ?>
+                    </select>
+                    <label for="issue_category" class="active" id="issue-category-label">Categorie<sup>*</sup></label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input id="issue_deadline" name="issue_deadline" type="text" placeholder="DD-MM-JJJJ">
+                    <label for="issue_deadline" class="active">Deadline</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="issue_title" name="issue_title" type="text" class="validate">
+                    <label for="issue_title">Titel<sup>*</sup></label>
+                </div>
+                <div class="input-field col s12">
+                    <textarea id="issue_description" name="issue_description" class="materialize-textarea"></textarea>
+                    <label for="issue_description">Omschrijving<sup>*</sup></label>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-ripple btn-flat">Sluiten</a>
+            <button type="submit" class="waves-effect waves-ripple btn-flat">Opslaan</button>
+        </div>
+    </form>
 </div>
 
 <script type="text/javascript" src="lib/jquery-3.1.0.min.js"></script>

@@ -26,6 +26,7 @@ if(empty($pizza)) {
                 //password valid
                 //set user as logged in and redirect back to index page
                 $_SESSION['logged_in'] = true;
+                $_SESSION['user_id'] = $result[0]['id'];
                 $_SESSION['user_first_name'] = $result[0]['first_name'];
                 $_SESSION['user_between_name'] = $result[0]['between_name'];
                 $_SESSION['user_last_name'] = $result[0]['last_name'];

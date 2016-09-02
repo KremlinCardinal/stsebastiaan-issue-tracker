@@ -1,7 +1,12 @@
 $(document).ready(function() {
     $('.modal-trigger').leanModal();
+    $('select').material_select();
     $(".button-collapse").sideNav({
         menuWidth: 180
+    });
+    $('.datepicker').pickadate({
+        selectMonths: false,
+        selectYears: 5
     });
 
     //set moment.js locale to 'nl'
@@ -9,32 +14,22 @@ $(document).ready(function() {
 
     getAll();
 
-    $('#registration-form').validate({
+    $('.js-modal-new-issue').click(function () {
+        openNewIssueModal();
+    });
+
+    $('#add-issue-form').validate({
         lang: 'nl',
         rules: {
-            first_name: {
-                required: true,
-                minlength: 2
-            },
-            between_name: {
+            issue_deadline: {
                 required: false
             },
-            last_name: {
-                required: true,
-                minlength: 2
+            issue_title: {
+                required: true
             },
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true,
+            issue_description: {
+                required: false,
                 minlength: 5
-            },
-            password2: {
-                required: true,
-                minlength: 5,
-                equalTo: "#password"
             }
         },
         errorElement : 'div',
@@ -47,29 +42,15 @@ $(document).ready(function() {
             }
         },
         submitHandler: function (form) {
-            var formdata = $(form).serialize();
-            register(formdata);
-        }
-    });
-
-    $('#login-form').validate({
-        lang: 'nl',
-        rules: {
-            email: {
-                required: true,
-                email: true
-            },
-            password: {
-                required: true
-            }
-        },
-        errorElement : 'div',
-        errorPlacement: function(error, element) {
-            var placement = $(element).data('error');
-            if (placement) {
-                $(placement).append(error)
+            var issueData = $(form).serialize();
+            if(!checkSelectedValue($('#issue_category').val())) {
+                var errorElement = '<div id="issue_category-title" class="error">Kies een categorie.</div>';
+                var placementElement = '#add-issue-form .select-wrapper';
+                $(errorElement).insertAfter(placementElement);
+                $('#issue-category-label').removeClass('active').addClass('active');
             } else {
-                error.insertAfter(element);
+                newIssue(issueData);
+                $('#modal-new-issue').closeModal();
             }
         }
     });
